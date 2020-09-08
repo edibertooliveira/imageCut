@@ -91,7 +91,7 @@ main {
   background: var(--color-primary-hover);
 }
 
-img {
+main img {
   max-width: 400px;
   color: #fff;
   border: 1px solid var(--color-borders);
@@ -103,4 +103,11 @@ footer {
   height: 50px;
   margin-top: 2rem;
   justify-content: center;
+}
+
+footer svg {
+  fill: var(--color-red);
+  width: 1rem;
+  height: 1rem;
+  font-size: 1rem;
 }
