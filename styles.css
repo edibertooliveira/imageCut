@@ -32,4 +32,23 @@ body {
 
 a {
   color: inherit;
-} 
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+small {
+  display: block;
+  font-size: 1.5rem;
+}
