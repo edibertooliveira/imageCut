@@ -6,21 +6,13 @@
 :root {
   
   --color-background: #121214;
-  --color-green: #04d361;
   --color-red: #e83f5b;
-  --color-orange: #fd951f;
-  --color-yellow: #f7df1e;
   --color-primary: #8257e6;
   --color-primary-hover: #9466ff;
   --color-secondary: #e1e1e6;
   --color-text: #a8a8b3;
   --color-support: #737380;
-  --color-shape: #202024;
-  --color-shape-hover: #29292e;
-  --color-icons: #41414d;
   --color-borders: #323238;
-  --color-black: #0d0d0f;
-
   font-size: 60%; /* controle das medidas rem */
 }
 
