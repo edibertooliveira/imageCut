@@ -68,11 +68,11 @@ main {
   justify-content: center;
 }
 
-#fileFoto {
+#arquivoDaFoto{
   display: none;
 }
 
-#seletorFoto {
+#seletorDeFotos {
   display: flex;
   height: 5.2rem;
   width: 26rem;
