@@ -87,7 +87,14 @@ main img {
   max-width: 400px;
   color: #fff;
   border: 1px solid var(--color-borders);
-  margin-top: 3rem;
+  margin-top: 0.8rem;
+}
+
+#seletorFerramenta {
+  border: 2px dashed var(--color-red);
+  display: none;
+  position: fixed;
+  
 }
 
 footer {
