@@ -132,8 +132,6 @@ window.addEventListener('DOMContentLoaded', ()=>{
         +(imgH / rcbH)
       ]
 
-      console.log('fator', widthFator, heightFator);
-
       //Multiplicar a largura da seleção pelo fator de largura e o mesmo para a altura 
       const [ selecaoWidth, selecaoHeight] = [
         +seletorFerramenta.style.width.replace('px', ''),
@@ -145,19 +143,14 @@ window.addEventListener('DOMContentLoaded', ()=>{
         +(selecaoHeight * heightFator)
       ]
 
-      console.log('corte', corteHeight, corteWidth);
-
       //Calcule e guarde a posição x e y verdadeiras, para utilizar no ctx
       const [ atualX, atualY ] = [
         +( relativeStartX * widthFator ),
         +( relativeStartY * heightFator )
       ]
 
-      console.log(atualX, atualY, corteWidth, corteHeight);
-
       // pegar o ctx a imagem cortada
       const imagemCortada = ctx.getImageData(atualX, atualY, corteWidth, corteHeight);
-      console.log(imagem);
 
       // limpar o ctx
       ctx.clearRect(0, 0, ctx.width, ctx.height);
