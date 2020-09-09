@@ -20,7 +20,7 @@
   </a>
 </p>
 
-> :rocket: Project made to connect teachers to students, made in Next Level Week #2 @Rocketseat
+> :rocket: Project created by Maik of @Rocketseat, where I had contact with canvas for the first time. I made my modifications, because I use it constantly to cut images quickly.
 
 # :pushpin: Table of Contents
 
