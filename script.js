@@ -1,6 +1,6 @@
 
 // TODO:  SELEÇÃO DA IMGAME PARA VISUALIZAÇÃO
-let btnSeletorFoto = document.getElementById('seletorDeFotos')
+let btnSeletorFoto = document.getElementById('btnSeletorDeFotos')
 let btnBaixar = document.getElementById('btnBaixar');
 let btnCorteFoto = document.getElementById('btnCorteFoto');
 
@@ -31,13 +31,13 @@ window.addEventListener('DOMContentLoaded', ()=>{
     reader.readAsDataURL(file);
 
      //Adicionar ao src do elemento #imagem
-    reader.onload = ()=> {
-      recebeFoto.src = reader.result;
+    reader.onload = function(event) {
+      imagem.src = event.target.result;
     }
 
 
     //TODO: SELEÇÃO DA FERRAMENTA
-    let startX, startY, relativeStartX, relativeStartY, endX, endY, relativeEndX, relativeEndY;
+    var startX, startY, relativeStartX, relativeStartY, endX, endY, relativeEndX, relativeEndY;
 
     let inicioSelecao = false;
     let seletorFerramenta = document.getElementById('seletorFerramenta');
@@ -73,6 +73,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
           seletorFerramenta.style.width = (endX - startX) + 'px';
           seletorFerramenta.style.height = (endY - startY) + 'px';
 
+          //Resetar botao de corte
           btnCorteFoto.style.display = 'none';
         }
       
@@ -80,11 +81,12 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
       //Registrar posicionamentos finais de X e Y (Relativo) e Remover flag de inicio de seleção
       mouseup(){
-        relativeEndX = event.layerX;
-        relativoEndY = event.layerY;
-
-
         inicioSelecao = false
+
+        relativeEndX = event.layerX;
+        relativeEndY = event.layerY;
+
+        //mostrar botao de corte
         btnCorteFoto.style.display = 'block';
       }
     }
@@ -93,7 +95,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     Object.keys(events)
     .forEach(e=>{
       recebeFoto.addEventListener(e, events[e]);
-    })
+    });
 
     //TODO: HTML CANVAS API
 
@@ -101,7 +103,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     let canvas = document.createElement('canvas');
 
     //criar um contexto do elemnto
-    let ctx = canvas = canvas.getContext('2d');
+    let ctx = canvas.getContext('2d');
 
     //Atualizar o preview de imagem, agora, com o conteúdo do canvas ao inves da imagem
     imagem.onload = function() {
@@ -116,8 +118,66 @@ window.addEventListener('DOMContentLoaded', ()=>{
     }
 
 
-  })
-})
+    //TODO: CORTE IMAGEM
+    // Adicionar evento click para quando clicar no botao
+    btnCorteFoto.onclick = ()=>{
+      
+      // Calcular o corte proporcional ao tamanho da imagem na tela
+      const { width: imgW, height: imgH } = imagem;
+      const { width: rcbW, height: rcbH } = recebeFoto;
+
+      //Divida a largura da foto pela largura do preview
+      const [widthFator, heightFator] = [
+        +(imgW / rcbW),
+        +(imgH / rcbH)
+      ]
+
+      console.log('fator', widthFator, heightFator);
+
+      //Multiplicar a largura da seleção pelo fator de largura e o mesmo para a altura 
+      const [ selecaoWidth, selecaoHeight] = [
+        +seletorFerramenta.style.width.replace('px', ''),
+        +seletorFerramenta.style.height.replace('px', '')
+      ]
+
+      const [ corteWidth, corteHeight ] = [
+        +(selecaoWidth * widthFator),
+        +(selecaoHeight * heightFator)
+      ]
+
+      console.log('corte', corteHeight, corteWidth);
+
+      //Calcule e guarde a posição x e y verdadeiras, para utilizar no ctx
+      const [ atualX, atualY ] = [
+        +( relativeStartX * widthFator ),
+        +( relativeStartY * heightFator )
+      ]
+
+      console.log(atualX, atualY, corteWidth, corteHeight);
+
+      // pegar o ctx a imagem cortada
+      const imagemCortada = ctx.getImageData(atualX, atualY, corteWidth, corteHeight);
+      console.log(imagem);
+
+      // limpar o ctx
+      ctx.clearRect(0, 0, ctx.width, ctx.height);
+
+      // ajuste de proporcoes
+      imagem.width = canvas.width = corteWidth;
+      imagem.height = canvas.height = corteHeight;
+
+      // adicionar a imagem cortada ao ctx
+      ctx.putImageData(imagemCortada, 0, 0)
+
+      // esconder ferramenta de corte
+      seletorFerramenta.style.display = 'none';
+
+      recebeFoto.src = canvas.toDataURL();
+
+    }
+
+  });
+});
 
 
 
