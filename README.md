@@ -5,7 +5,7 @@
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/edibertooliveira/imageCut?color=red">
 
   <a aria-label="Completed" href="https://edibertooliveira.github.io/imageCut">
-    <img src="https://img.shields.io/badge/Project-UimageCut-red"></img>
+    <img src="https://img.shields.io/badge/Project-imageCut-red"></img>
   </a>
   <a href="https://github.com/edibertooliveira/imageCut/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/edibertooliveira/imageCut?color=red">
