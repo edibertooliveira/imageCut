@@ -20,6 +20,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow: none;
 }
 
 a {
@@ -88,7 +89,7 @@ button:hover {
 }
 
 main img {
-  max-width: 400px;
+  max-height: 300px;
   color: #fff;
   border: 1px solid var(--color-borders);
   margin: 0.8rem 0;

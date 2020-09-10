@@ -3,12 +3,11 @@
 let btnSeletorFoto = document.getElementById('btnSeletorDeFotos')
 let btnBaixar = document.getElementById('btnBaixar');
 let btnCorteFoto = document.getElementById('btnCorteFoto');
-
 let arquivoDaFoto = document.getElementById('arquivoDaFoto');
 let recebeFoto = document.getElementById('recebeFoto');
+let nomeFoto;
+let imagem;
 
-
-let imagem = new Image();
 
 
 //Adicionar evento 'click' no elemento #seletorDeFotos, que irá executar a funcionalidade de clicar no elemento #arquivoDaFoto
@@ -19,20 +18,26 @@ btnSeletorFoto.onclick = () => {
 //Ao terminar o evento de carregar a DOM
 window.addEventListener('DOMContentLoaded', ()=>{
 
-//Adicionar evento 'change' no elemento #arquivoDaFoto
+  //Adicionar evento 'change' no elemento #arquivoDaFoto
 
   arquivoDaFoto.addEventListener('change', e => {
+
+    // Mostra o botao de download
+    btnBaixar.style.display = "none";
+    btnCorteFoto.style.display = "none";
     
     //Criar um novo FileReader()
     const reader = new FileReader();
     const file = arquivoDaFoto.files.item(0);
-
+    nomeFoto = file.name;
     //Usar a funcionalidade .readAsDataURL() para a leitura do arquivo
     reader.readAsDataURL(file);
 
      //Adicionar ao src do elemento #imagem
     reader.onload = function(event) {
+      imagem = new Image();
       imagem.src = event.target.result;
+      imagem.onload = carregueFoto;
     }
 
 
@@ -106,7 +111,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     let ctx = canvas.getContext('2d');
 
     //Atualizar o preview de imagem, agora, com o conteúdo do canvas ao inves da imagem
-    imagem.onload = function() {
+    function carregueFoto() {
       const { width, height } = imagem;
       canvas.width = width;
       canvas.height = height;
@@ -165,12 +170,25 @@ window.addEventListener('DOMContentLoaded', ()=>{
       // esconder ferramenta de corte
       seletorFerramenta.style.display = 'none';
 
+      //Atualizar o preview da imagem
       recebeFoto.src = canvas.toDataURL();
 
+      // Mostra o botao de download
+      btnBaixar.style.display = "block";
     }
 
+    // TODO: DOWNLOAD 
+    btnBaixar.onclick = ()=>{
+      const a = document.createElement('a');
+
+      // Nome do arquivo de imagem
+      a.download = '~cropped-image.png';
+      a.href = canvas.toDataURL();
+      a.click();
+    }
   });
 });
+
 
 
 
