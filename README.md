@@ -25,9 +25,9 @@
 ### Web Screenshot
 
 <div align="center" style="display: flex; flex-direction: 'row'; align-items: 'center';">
-   <img src="./.github/Screenshot_1.png" width="250px">
-   <img src="./.github/Screenshot_2.png" width="250px">
-   <img src="./.github/Screenshot_3.png" width="250px">
+   <img src="./.github/Screenshot_1.png" width="250px" height="400px">
+   <img src="./.github/Screenshot_2.png" width="250px" height="400px">
+   <img src="./.github/Screenshot_3.png" width="250px" height="400px">
 </div>
 
 > :rocket: created for study using as basis the lessons of the <a href="https://github.com/maykbrito" target="_blink">Maik Brito</a> of <a href="https://github.com/Rocketseat" target="_blink">Rocketseat</a>. I made my modifications, because I use it constantly to cut images quickly.
