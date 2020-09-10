@@ -20,12 +20,23 @@
   </a>
 </p>
 
-> :rocket: Project created by Maik of @Rocketseat, where I had contact with canvas for the first time. I made my modifications, because I use it constantly to cut images quickly.
+# imageCut
+
+### Web Screenshot
+
+<div align="center" style="display: flex; flex-direction: 'row'; align-items: 'center';">
+   <img src="./.github/Screenshot_1.png" width="250px">
+   <img src="./.github/Screenshot_2.png" width="250px">
+   <img src="./.github/Screenshot_3.png" width="250px">
+</div>
+
+> :rocket: created for study using as basis the lessons of the <a href="https://github.com/maykbrito" target="_blink">Maik Brito</a> of <a href="https://github.com/Rocketseat" target="_blink">Rocketseat</a>. I made my modifications, because I use it constantly to cut images quickly.
 
 ### :pushpin: Table of Contents
 
 * [Technologies](#computer-technologies)
 * [Features](#rocket-features)
+* [Interesting things covered in this project](#Covered-in-this-project)
 * [How to Run](#construction_worker-how-to-run)
 * [Found a bug? Missing a specific feature?](#bug-issues)
 * [License](#closed_book-license)
@@ -40,17 +51,30 @@ This project was made using the follow technologies:
 
 ### :rocket: Features
 
-* A very useful and agile tool for cropping images.
-* App easy to use without having to download or open softweres just the browser.
+* To speed up image editing without using more elaborate applications
+
+### Covered in this project
+
+<ul>
+  <li>Create a new instance of HTMLImageElement Image().</li>
+  <li>Working with objects in events.</li>
+  <li>HTML Canvas API</li>
+  <li>Cropping image in Canvas API.</li>
+  <li>Handling multiple events in an element.</li>
+  <li>Download image modification</li>
+</ul>
+
+> Status: Completo.
 
 ### :construction_worker: How to run
 ```bash
 # Clone Repository
 $ git clone https://github.com/edibertooliveira/imageCut.git
+
 ```
 
 ### :bug: Issues
-Feel free to **file a new issue** with a respective title and description on the the [ImageCut](https://github.com/edibertooliveira/imageCut/issues) repository. If you already found a solution to your problem, **i would love to review your pull request**!
+Feel free to **file a new issue** with a respective title and description on the the [imageCut](https://github.com/edibertooliveira/imageCut/issues) repository. If you already found a solution to your problem, **i would love to review your pull request**!
 
 ### :closed_book: License
 Released in 2020 :closed_book: License
